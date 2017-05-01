@@ -15,7 +15,7 @@ class Student
     p @@Students
   end
 
-  def self.average_age
+  def self.average_age #O(n)
     total_age = 0
     @@Students.each do |student|
       total_age += student.age
@@ -23,7 +23,7 @@ class Student
     print "Average age is: ", (total_age/@@Students.length), "\n"
   end
 
-  def self.male_female
+  def self.male_female #O(n)
     total_male = 0
     total_female = 0
     @@Students.each do |student|
