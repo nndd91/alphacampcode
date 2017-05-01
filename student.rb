@@ -47,9 +47,6 @@ agnes = Student.new("Agnes", "F", 26, "product design")
 eason = Student.new("Eason", "M", 31, "marketing")
 zach = Student.new("Zach", "M", 28, "web development")
 peter = Student.new("Peter", "M", 30, "iOS development")
-
-p agnes
-p agnes.name
 Student.print_list
 Student.average_age
 Student.male_female
