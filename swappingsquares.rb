@@ -1,42 +1,44 @@
 def swapping(array)
 
+  #Generating 1->n + n + n->1 pattern array
   length = array.length
-  n = ((length-1)/2)
-  p n
-  left_array = []
-  for i in (1..n)
-    left_array << i
+  max_moves = ((length-1)/2)
+  p max_moves
+
+  num_of_moves_each_turn = []
+
+  for i in (1..max_moves)
+    num_of_moves_each_turn << i
+  end
+  num_of_moves_each_turn << max_moves
+
+  for i in (0..max_moves-1)
+
+    num_of_moves_each_turn << max_moves - i
   end
 
-  left_array << n
-
-  for i in (0..n-1)
-
-    left_array << n - i
-  end
-
-  p left_array
+  p num_of_moves_each_turn
 
 	#swap from one side to the other
   n = array.length-1
-	emptyindex = array.index("-")
-  p emptyindex
 
   #Move all x down
-  swapping = "X"
   turn = 0
   total_moves = 0
-  left_array.each do |k|
-  moves = k
-  turn += 1
+
+  num_of_moves_each_turn.each do |num_of_moves|
+
+    #Setting up variables that refreshes/run on loop 1
+    moves = num_of_moves
+    turn += 1
 
 
-    #sweep left
     while moves > 0 do
       print "Turns: ", turn, "\n"#, " %2 =", turn%2, "\n"
       print "Moves left: ", moves, "\n"
-      #print "Start check\n"
+
       if turn%2 != 0
+        #sweep left and swap X
         print "Checking X\n"
         for i in (0..n)
 
@@ -55,8 +57,8 @@ def swapping(array)
           end
         end
       else
+        #sweep right and swap Y
         print "Checking Y\n"
-      #sweep right
         for i in (0..n)
 
           #print "Start"
@@ -114,9 +116,7 @@ def check_array(array)
   true
 end
 
-input = "XXX-OOO"
-input3 = "XX-OO"
-input3 = "OOO-XXX"
+input = "XXXXXX-OOOOOO"
 
 array = input.chars
 p array
