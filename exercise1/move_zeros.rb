@@ -13,7 +13,7 @@ Note:
 
 def move_zeroes(nums)
 
-p n = nums.length-1
+#print n = nums.length-1
 
 for i in (0..n)
 	if nums[i] == 0
