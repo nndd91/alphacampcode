@@ -6,6 +6,21 @@ def fizzbuzz(n)
 end
 
 (1..50).each do |i|
-	puts fizzbuzz(i)
+	print fizzbuzz(i)
+end
+puts
+
+def fizzbuzz(n)
+	t = ""
+	if n%3==0
+		t += "fizz"
+	end
+	if n%5 == 0 
+		t += "buzz" 
+	end
+	t = n if t == ""
 end
 
+(1..50).each do |i|
+	print fizzbuzz(i)
+end

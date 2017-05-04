@@ -116,7 +116,7 @@ def check_array(array)
   true
 end
 
-input = "XXXXXX-OOOOOO"
+input = "XXXXXXXX-OOOOOOOO"
 
 array = input.chars
 p array
