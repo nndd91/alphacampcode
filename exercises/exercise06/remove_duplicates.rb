@@ -27,7 +27,35 @@ end
 =end
 
 def remove_duplicates(nums)
-	
+	uniqueindex = 0
+	uniquenum = 0
+
+	if nums == []
+		return 0
+	end
+
+	(0..nums.length-1).each do |i|
+		if nums[i] == 0 && uniquenum == 0
+			uniquenum = nums[i]
+			nums[uniqueindex] = uniquenum
+			uniqueindex += 1
+			uniquenum = -1
+		end
+
+		if nums[i] != uniquenum
+			uniquenum = nums[i]
+			nums[uniqueindex] = uniquenum
+			uniqueindex += 1
+		end
+	end
+
+	n = nums.length
+
+	(0..(nums.length-uniqueindex)).each do |i|
+		nums.delete_at(n-i)
+	end
+	p nums
+	nums.length
 
 end
 
@@ -37,9 +65,10 @@ def remove_duplicates2(nums)
 end
 
 
-nums = [1, 1, 1, 2, 3, 4, 1, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2, 1, 2].sort
+#nums = [1, 1, 1, 2, 3, 4, 1, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2, 1, 2].sort
+nums = [0,0,0,0]
 p nums
-remove_duplicates(nums)
+p remove_duplicates(nums)
 
 print remove_duplicates2(nums)
 

@@ -13,15 +13,15 @@ Note:
 
 def move_zeroes(nums)
 
-#print n = nums.length-1
+n = nums.length-1
 
-for i in (0..n)
-	if nums[i] == 0
-		nums.delete_at(i)
-		nums << 0
-		n -= 1
-	end
-end
+  for i in (0..n)
+    if nums[i] == 0
+      nums[i] = "X"
+      nums << 0
+    end
+  end
+  nums.delete("X")
 
 end
 array = [0, 1, 4, 2, 0, 2]
