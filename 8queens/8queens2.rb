@@ -41,103 +41,8 @@ class Board
 		p $tempboard if $debug == 1
 	end
 
-	def find_dot_and_add
-		print "n is #{n}"
-		$run = 0
-		for i in (0..n-1)
-			add_queen(0, i)
-			#Go through each row
-			x = 1
-			def add_on_row(x)
-				(0..n-1).each do |j|
-					$run += 1
-					if $tempboard[x][j] == "."
-						add_queen(x, j)
-					end
-					
-					if x < n - 1
-						x += 1
-						add_on_row(x)
-					end
-				end
-			end 
-			add_on_row(x)
-			check_board(n)
-			print_board
-			refresh_board
-		end	
-	end
-	$run = 0
-
-	def add_queen(x, y)
-
-		def check_within(x, y)
-			#puts "value of n is #{n}"
-			if (x >= 0) && (x < n) && (y >= 0) && (y < n)
-				#puts "X at #{x} and Y at #{y} is within!"
-				return true
-			else
-				return false
-			end
-		end
-
-		def add_x(x, y)
-			#Changing rows
-			for i in (0..(self.n*2))
-				puts "i is #{i}" if $debug == 1
-				x_cur = x - n + i
-				puts "x_cur is #{x_cur}" if $debug == 1
-				puts "y is #{y}" if $debug == 1
-				if check_within(x_cur, y)
-					puts "Within!" if $debug == 1
-					if $tempboard[x_cur][y] == "."
-						puts "Changing to X!" if $debug == 1
-						$tempboard[x_cur][y] = "X"
-						p $tempboard  if $debug == 1
-					end
-				end
-			end
-			#Changing y
-			for i in (0..(self.n*2))
-				y_cur = y - n + i
-				if check_within(x, y_cur)
-					if $tempboard[x][y_cur] == "."
-						$tempboard[x][y_cur] = "X"
-					end
-				end
-			end
-			#changing diagonal
-			for i in (0..(self.n*2))
-				x_cur = x - n + i 
-				y_cur = y - n + i
-				if check_within(x_cur, y_cur)
-					if $tempboard[x_cur][y_cur] == "."
-						$tempboard[x_cur][y_cur] = "X"
-					end
-				end
-			end	
-			#changing diagonal
-			for i in (0..(self.n*2))
-				x_cur = x + n - i 
-				y_cur = y - n + i
-				if check_within(x_cur, y_cur)
-					if $tempboard[x_cur][y_cur] == "."
-						$tempboard[x_cur][y_cur] = "X"
-					end
-				end
-			end			
-
-		end
-
-		if $board[x][y] != "X"
-			$board[x][y] = "Q"
-			$tempboard[x][y] = "Q"
-			add_x(x, y)
-			#print_board
-		else
-			puts "Invalid position" if $debug == 1
-		end
-	end
+	
+	
 
 	def print_board
 		puts "Board"
@@ -211,9 +116,7 @@ def main
 	n = 4
 	$winningboard = []
 	board = Board.new(n)
-	#board.find_dot_and_add
-	board.try(0, 0)
-	#board.print_board
+
 	board.check_board(n)
 	#p $winningboard
 	boardnum = 1
