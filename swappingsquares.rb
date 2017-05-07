@@ -13,7 +13,6 @@ def swapping(array)
   num_of_moves_each_turn << max_moves
 
   for i in (0..max_moves-1)
-
     num_of_moves_each_turn << max_moves - i
   end
 
@@ -77,7 +76,6 @@ def swapping(array)
             print "Moves left", moves, "\n"
           end
         end
-
       end
 
       check_array(array)
@@ -92,7 +90,6 @@ def swap(a, b, array)
   array[b] = temp
   print "Swapping ", a, " and ", b, "\n"
 end
-
 
 def check_array(array)
   n = array.length-1
