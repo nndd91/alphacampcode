@@ -15,3 +15,8 @@ end
 
 p is_anagram("caac", "ccac")
 p is_anagram("anagram","nagaram")
+
+#Pavel Code
+#Make and array and sort then compare
+
+#str1.chars.sort == str2.chars.sort

@@ -10,3 +10,4 @@ def solveNQueens(self, n):
     result = []
     DFS([],[],[])
     return [ ["."*i + "Q" + "."*(n-i-1) for i in sol] for sol in result]
+

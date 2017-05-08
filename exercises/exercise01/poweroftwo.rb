@@ -34,4 +34,11 @@ def is_power_of_two(n)
     return false
   end
 end
+
+To turn to binary
+2.to_s(2)
+16.to_s(2)
+
 =end
+
+
