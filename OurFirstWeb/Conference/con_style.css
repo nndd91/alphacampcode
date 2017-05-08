@@ -1,71 +1,166 @@
 /* Main */
 body {
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 /* Page formatting */
 /* Header */
 
 #header {
+  background-color: #283F51;
+  height: 600px;
+  margin: 0px -15px -0px -15px;
+  padding: 30px 35px;
 }
 
 #section1 {
-
+  height: 200px;
 }
 
 #header_left {
-
+  float: left;
+  height: 150px;
+  vertical-align: middle;
+  color: white;
 }
 
 #header_right {
-
+  float: right;
+  height: 150px;
+  padding: 30px;
+  text-align: right;
+  font-size: 1.3em;
+  color: #638980;
 }
 
 /* Navigation */
 .nav {
+  font-size: 0.8em;
+
+}
+
+.nav a {
+  color: white;
+  display: inline-block;
+  padding: 30px 0 0 20px;
+  text-decoration: none;
+  font-weight: bold;
 
 }
 
 #section2 {
-
+  height: 200px;
+  padding: 20px 100px;
+  text-align: center;
+  color: #6F978A;
 }
 
 
 /* Column */
 
 #content {
+  height: 600px;
+  width: 1300px;
+  margin: 0 auto;
 
 }
 
 
 .column {
+  width: 350px;
+  padding: 30px;
+  margin: auto;
+  float: left;
+  margin: auto;
+  text-align: left;
+
 }
 
 
 
 /* Footer */
 #footer {
-
+  height: 60px;
+  padding: 40px 60px;
+  margin: 0px -20px;
+  background-color: #283F51;
 }
 
 #footer_left {
-
+  float: left;
+  color: #517372;
+  padding: 12px;
+  font-size: 1.3em;
 }
 
 #footer_right {
-
+  float: right;
+  padding: 15px;
 }
 
 
 /* Content */
 
-.col_head1 {
+.col_head1 h1 {
+  font-weight: lighter;
+  font-size: 0.9em;
+  color: #939EA7;
 }
 
-.col_img {
+.col_img img {
+  height:240px;
+  width: 330px ;
 }
 
-.col_head2 {
+.col_head2 h2 {
+  font-weight: lighter;
+  font-size: 1.5em;
+  color: #587F77;
 }
 
-.col_para {
+.col_para p {
+  color: #939EA7;
  }
+
+#footer_right a {
+  color: white;
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+
+#section2 h1 {
+  font-weight: lighter;
+  color: #6F978A;
+  font-size: 2.6em;
+  margin-bottom: 10px;
+}
+
+#section2 p {
+  margin-top: 0px;
+  font-weight: lighter;
+  color: white;
+  font-size: 1.5em;
+  line-height: 60px;
+}
+
+#section2 button {
+  background-color:#283F51;
+  padding: 30px 40px;
+  border: 1px solid white;
+  font-size: 1.2em;
+  color: white;
+  font-weight: lighter;
+  border-radius: 10px;
+}
+
+#header_left h1 {
+  margin-top: 0px;
+  font-weight: lighter;
+  font-size: 3em;
+}
+
+#header_right p {
+  margin: 20px 0 0 0;
+}
