@@ -1,0 +1,166 @@
+body {
+  color: #000;
+  font: arial;
+  font-size: 13px;
+  margin: 0 auto;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+}
+
+/* Navigation Bar */
+
+#navigation {
+  position: absolute;
+  background: #fff;
+  height: 30px;
+  padding: auto auto;
+  top: 15px;
+  width: 100%;
+}
+
+#navigation span {
+  float: left;
+  padding-left: 15px;
+  margin-top: auto;
+  height: 30px;
+  display: inline-block;
+}
+
+#navigation a {
+  margin: auto auto;
+  padding-left: 15px;
+  padding-top: 5px;
+  float: left;
+  vertical-align: middle;
+  display: inline-block;
+  color: #757575;
+}
+
+#rightnav {
+  float: right;
+  padding-right:30px;
+}
+#navigation img {
+  height: 27px;
+  width: 27px;
+}
+
+#navigation img#profile {
+  height: 33px;
+  width: 33px;
+}
+
+#navigation a:visited {
+  color: #609;
+}
+#navigation a:hover {
+  color: #609;
+}
+
+/*First Seperator */
+
+#seperator {
+  height: 200px;
+  width: 980px;
+}
+
+/* Body */
+
+#logo {
+  margin: 0 auto;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  background-size: 300px 0px;
+  width: 330px;
+}
+
+#logo img {
+  height: 110px;
+  width: 100%;
+  margin: auto;
+
+}
+
+#body {
+  display: block;
+  padding-bottom: 35px;
+}
+
+
+#search {
+  width: 558px;
+  height: 44px;
+  margin: 0 auto 10px auto;
+  border: 1px solid #757575;
+  padding: 5px 9px;
+  display: block;
+  align: left;
+}
+
+#search input {
+  width: 500px;
+  height: 34px;
+  border: 0px solid #f2f2f2;
+  float: left;
+}
+
+#search img {
+  height: 34px;
+  width: 28px;
+  float: left;
+}
+
+#buttons {
+  width: 350px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 0 auto;
+  align: left;
+}
+
+#buttons button{
+  background-color: #f2f2f2;
+  padding:0 16px;
+  margin: 11px 4px;
+  display: inline-block;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  color: #757575;
+  min-width: 54px;
+  height: 34px;
+  font-weight: bold;
+}
+
+/* Footer */
+#fleft {
+  float: left;
+
+}
+
+#fright{
+  float: right;
+  padding-right: 27px;
+
+
+}
+
+#footer {
+  background-color: #fafafa;
+  position: absolute;
+  width: 100%;
+  height:40px;
+  bottom: 0px;
+}
+
+.footlinks {
+  color: #757575;
+  font-size: 13px;
+  font-family: Liberation Sans;
+  padding-left: 27px;
+  line-height: 40px;
+
+
+}
