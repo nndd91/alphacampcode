@@ -1,0 +1,42 @@
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.no-padding{padding:0px;}
+
+#topbar {
+  background-color: #333333;
+  height: 40px;
+  /*margin: 0 0 0 -130px;*/
+}
+
+#headertop {
+  height: 100px;
+}
+
+#headerbtm {
+  background-color: #FFC526;
+  height: 40px;
+}
+
+#myCarousel {
+  height: 400px;
+}
+
+#content {
+
+  height: 600px;
+
+}
+
+#latestprojectphotos {
+  height: 400px;
+  background-color: black;
+}
+
+#seeallphotos {
+  height: 200px;
+  background-color: #333333;
+  color: white;
+}
