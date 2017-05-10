@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>User Database</title>
+
+  <style>
+
+  body {
+    font-family: ;
+    font-size: 20px;
+  }
+
+  th, td {
+/*    display: inline-block;
+    margin-left: 50px;*/
+    padding: 0 20px;
+  }
+
+  #edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: silver;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+
+    visibility: hidden;
+  }
+
+  #edit.active {
+    visibility: visible;
+
+  }
+
+  #edit td {
+    padding: 10px;
+  }
+
+  .template {
+    visibility: hidden;
+  }
+
+  </style>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <h1>User Database</h1>
+
+  <table id="userlist">
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Age</th>
+      <th>Edit?</th>
+      <th>Delete?</th>
+    </tr>
+    <tr class="user">
+      <td class="firstname">Jill</td>
+      <td class="lastname">Smith</td>
+      <td class="age">50</td>
+      <td><a href="#" class="edit-link">Edit</a></td>
+      <td><a href="#" class="delete-link">Delete</a></td>
+    </tr>
+    <tr class="user">
+      <td class="firstname">Jackie</td>
+      <td class="lastname">Lee</td>
+      <td class="age">30</td>
+      <td><a href="#" class="edit-link">Edit</a></td>
+      <td><a href="#" class="delete-link">Delete</a></td>
+    </tr>
+    <tr class="user">
+      <td class="firstname">Elizabeth</td>
+      <td class="lastname">DeWitt</td>
+      <td class="age">18</td>
+      <td><a href="#" class="edit-link">Edit</a></td>
+      <td><a href="#" class="delete-link">Delete</a></td>
+    </tr>
+  </table>
+  <table>
+    <tr class="user template">
+      <td class="firstname">firstname</td>
+      <td class="lastname">lastname</td>
+      <td class="age">age</td>
+      <td><a href="#" class="edit-link">Edit</a></td>
+      <td><a href="#" class="delete-link">Delete</a></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#" id="new">New</a>
+      </td>
+    </tr>
+
+  </table>
+
+  <div id="edit">
+    <div class="col-sm-6">
+      <table>
+        <tr>
+          <h1><center>Edit</center></h1>
+        </tr>
+        <tr>
+          <td>First Name: </td><td><input class="inputFirstName"></td>
+        </tr>
+        <tr>
+          <td>Last Name: </td><td><input class="inputLastName"></td>
+        </tr>
+        <tr>
+          <td>Age: </td><td><input class="inputAge"></td>
+        </tr>
+        <tr>
+          <td><center>
+            <button id="savebutton">Save</button>
+          </center>
+          </td>
+          <td>
+          <center>
+            <button id="cancel">Cancel</button>
+            </center>
+          </td>
+        </tr>
+    </div>
+
+
+  </div>
+
+  <script>
+
+  // A $( document ).ready() block.
+
+  $( document ).ready(function() {
+
+    var $user;
+    newentry = false;
+
+    $("#new").click(function() {
+      console.log("Clicked on new");
+
+      newentry = true;
+
+      //Set empty values
+      $(".inputFirstName").val("");
+      $(".inputLastName").val("");
+      $(".inputAge").val("");
+
+      $('#edit').addClass("active");
+      });
+
+    //Edit Link
+    $(".edit-link").click(edit);
+
+    function edit() {
+      console.log("Clicked on edit-link")
+      $user = $(this).closest(".user");
+      console.log($user);
+      var first_name = $user.find(".firstname").html();
+      var last_name = $user.find(".lastname").html();
+      var age = $user.find(".age").html();
+
+      //Display current values
+      $(".inputFirstName").val(first_name);
+      $(".inputLastName").val(last_name);
+      $(".inputAge").val(age);
+
+      $('#edit').addClass("active");
+    };
+
+    //Delete Link
+    $( ".delete-link" ).click(deleteuser);
+
+    function deleteuser() {
+      var $user = $(this).closest(".user");
+      var first_name = $user.find(".firstname").html();
+      var last_name = $user.find(".lastname").html();
+      var name = first_name + " " + last_name;
+      console.log(name);
+
+      if (confirm('Are you sure you want to delete ' + name + "?")) {
+        $user.remove();
+      }
+     };
+
+    //Save Button!
+    $("#savebutton").click(function() {
+      console.log("Clicked on save-button");
+      //Create new user if user clicked on new
+      if (newentry == true) {
+        $newUser = $(".user.template").clone().removeClass("template");
+        $user = $newUser;
+        $("#userlist").append($newUser);
+        newentry = false
+      }
+
+      //Save Function
+      first_name = $(".inputFirstName").val();
+      last_name = $(".inputLastName").val();
+      age = $(".inputAge").val();
+      console.log(first_name);
+      $user.find(".firstname").html(first_name);
+      $user.find(".lastname").html(last_name);
+      $user.find(".age").html(age);
+      $user.find(".edit-link").click(edit);
+      $user.find(".delete-link").click(deleteuser);
+      $user = ""
+
+      $('#edit').removeClass("active");
+    });
+
+
+    //Cancel Link
+    $("#cancel").click(function() {
+      console.log("Clicked on cancel");
+
+      $('#edit').removeClass("active");
+    });
+
+
+});
+
+
+</script>
+
+</body>
+
+</html>
