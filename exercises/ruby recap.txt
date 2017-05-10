@@ -1,0 +1,89 @@
+1) Can you explain the ||= operator?
+Example of use:
+  a = 1
+  b = 2
+  a ||= b  (Hint! Same as: a = a || b)
+
+One more example of use:
+  c = nil
+  d = 40
+  c ||= d  (Hint! Same as: c = c || d)
+
+Conditional Assignments, if a is empty, assign the value to a, otherwise a retains its value
+
+
+
+2) Define a Hash with keys "a", "b", "c", "d", and values ["avocado"], ["bean", "banana"], ["carrot", "cherry", "clementine"] and ["date", "dragon fruit"] respectively.
+Then:
+a) print the hash to the console
+b) find a way to print the total number of fruits. It should give you number 9.
+c) remove all "c" fruits
+d) print the hash again
+
+b)
+hash.each do |k,v|
+  print v
+end
+
+c)
+total = 0
+hash.each do |k,v|
+  total += v.count
+end
+
+d)
+
+
+
+3) Let's say we have the following array:
+codes = [65, 66, 67, 68, 69, 70]
+What ruby code do we have to call, to change this array into ["A", "B", "C", "D", "E", "F"]?
+Hint! Look for ruby method called #chr.
+
+.chr
+
+4) Having a following array:
+chars = ["a", "K", "r", "e", "V", "L", "C"]
+Iterate over the array, or use map method, to print following:
+irb(main):046:0> ... your code ...
+- a is lowercase
+- K is uppercase
+- r is lowercase
+- e is lowercase
+- V is uppercase
+- L is uppercase
+- C is uppercase
+=> nil
+
+
+
+5) How are the methods ending with exclamation mark different? You can explain on the following example:
+str1 = "MY STRING"
+str1.downcase
+str1.downcase!
+
+Permanent assignment
+
+6) Write a method that receives a positive number. If the number:
+- is between 1 and 5, method prints "I am between 1 and 5".
+- is between 6 and 10, method prints "I am between 6 and 10"
+- otherwise, method prints "I am more than 10"
+
+def positive(num)
+  if (num > 0 && num < 6)
+    print "I am between 1 and 5"
+  elsif (num > 5 & num < 11)
+    print "I am between 6 and 10"
+  else
+    print "I am more than 10"
+end
+
+
+
+7) Write a method that will change Celsius to Fahrenheit.
+Hint! If you call method with 30 Celsius, you should get back 86 Fahrenheit.
+
+def celtofah(cel)
+  fal = (cel * 1.8)+32
+end
+

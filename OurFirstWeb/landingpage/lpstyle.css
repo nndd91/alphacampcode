@@ -1,3 +1,7 @@
+body {
+  color: black;
+  font-size: 15px;
+}
 .container-full {
   margin: 0 auto;
   width: 100%;
@@ -8,7 +12,23 @@
 #topbar {
   background-color: #333333;
   height: 40px;
+  padding: 10px 40px;
+  color: #726A6A;
+  font-size: 0.8em;
   /*margin: 0 0 0 -130px;*/
+}
+
+#topbarleft {
+  float: left;
+}
+
+#topbarright {
+  float: right;
+}
+
+#topbarright span {
+  display: inline-block;
+  padding: 0 0 0 10px;
 }
 
 #headertop {
@@ -20,13 +40,38 @@
   height: 40px;
 }
 
+#headerleft img {
+  float: left;
+  margin: 10px 0 0 0;
+}
+
+#headerright {
+  float: right;
+  color: black;
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+
+#headerright div {
+  display: inline-block;
+  vertical-align: center;
+  text-align: left;
+  font-size: 0.8em;
+  margin: auto 0;
+}
+
+#headerright img {
+  margin: -20px 0 0 0;
+
+}
+
 #myCarousel {
-  height: 400px;
 }
 
 #content {
 
   height: 600px;
+  text-align: center;
 
 }
 
@@ -36,7 +81,7 @@
 }
 
 #seeallphotos {
-  height: 200px;
+  height: 100px;
   background-color: #333333;
   color: white;
 }
