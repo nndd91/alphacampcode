@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My title</title>
+
+  <style>
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      padding: 0px;
+    }
+    
+    ul li a {
+      display: block;
+      text-align: center;
+      background: #333333;
+      color: white;
+      padding: 20px 60px;
+      cursor: pointer;
+      text-decoration: none;
+      /*border: 1px solid #333333;*/
+    }
+    
+    @keyframes wiggle {
+      0% {
+        transform: rotate(0deg);
+      }
+      15% {
+        transform: rotate(10deg);
+      }
+      30% {
+        transform: rotate(0deg);
+      }
+      45% {
+        transform: rotate(-10deg);
+      }
+      60% {
+        transform: rotate(0deg);
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      ul {
+        flex-direction: column;
+      }
+    }
+    
+    ul li a:hover {
+      background: white;
+      color: #333333;
+      transition: all .5s;
+      animation-name: wiggle;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+    
+    ul li.active {
+      background: white;
+      color: #333333;
+      text-decoration: underline;
+      /*border: 1px solid #333333;*/
+    }
+    
+    .page {
+      display: none;
+    }
+    
+    .page.active {
+      display: block;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <script>
+    $('document').ready(function() {
+      $(".page-link").click(function() {
+        console.log("Clicked on page link");
+
+        // Hide all pages
+        $('.page').removeClass("active");
+
+        // Display the page
+        var pageId = $(this).data("page");
+        $(pageId).addClass("active");
+      });
+    });
+
+
+    /*
+
+
+    $('document').ready(function() {
+      //Page 1 Click handler
+      pageActive("#page1");
+
+      $(".page1-link").click(function() {
+        console.log("Clicked on page 1 link");
+        pageActive("#page1");
+      });
+      //Page 2 Click Handler
+      $(".page2-link").click(function() {
+        console.log("Clicked on page 2 link");
+        pageActive("#page2");
+      });
+      //Page 3 Click Handler
+      $(".page3-link").click(function() {
+        console.log("Clicked on page 3 link");
+        pageActive("#page3");
+      });
+      $(".page4-link").click(function() {
+        console.log("Clicked on page 4 link");
+        pageActive("#page4");
+      });
+      $(".page5-link").click(function() {
+        console.log("Clicked on page 5 link");
+        pageActive("#page5");
+      });
+
+
+      //Active and Inactive page
+      function pageActive(page) {
+        console.log(page, " Active");
+        console.log("Starting to remove pages other than ", page);
+        pages = ["#page1", "#page2", "#page3", "#page4", "#page5"];
+        pageslink = [".page1-link", ".page2-link", ".page3-link", ".page4-link", ".page5-link"];
+
+        for (var i = 0; i < pages.length; i++) {
+          if (pages[i] == page) {
+            //console.log(page, " is found");
+            $(pages[i]).addClass("active");
+            $(pageslink[i]).addClass("active");
+            pages.splice(i, 1);
+            pageslink.splice(i, 1);
+          };
+        };
+        for (var i = 0; i < pages.length; i++) {
+          $(pages[i]).removeClass("active");
+          $(pageslink[i]).removeClass("active");
+          //console.log(pages[i], " is being removed");
+        };
+      };
+
+    });
+
+    */
+  </script>
+  <!-- Menu -->
+  <ul class="nav">
+    <li><a class="active page-link" href="#" data-page="#page1">One</a></li>
+    <li><a href="#" class="page-link" data-page="#page2">Two</a></li>
+    <li><a href="#" class="page-link" data-page="#page3">Three</a></li>
+    <li><a href="#" class="page-link" data-page="#page4">Four</a></li>
+    <li><a href="#" class="page-link" data-page="#page5">Five</a></li>
+  </ul>
+
+  <!-- Page 1-->
+  <div id="content">
+    <div class="page active" id="page1">
+      <h1>Page 1!!</h1>
+      <p>The content is right here. Some paragraphs about something that is interesting to you</p>
+      <p>This is the second paragraph about something interesting to you.</p>
+    </div>
+    <div class="page" id="page2">
+      <h1>Page 2!!</h1>
+      <p>The content is right here. Some paragraphs about something that is interesting to you</p>
+      <p>This is the second paragraph about something interesting to you.</p>
+    </div>
+    <div class="page" id="page3">
+      <h1>Page 3!!</h1>
+      <p>The content is right here. Some paragraphs about something that is interesting to you</p>
+      <p>This is the second paragraph about something interesting to you.</p>
+    </div>
+    <div class="page" id="page4">
+      <h1>Page 4!!</h1>
+      <p>The content is right here. Some paragraphs about something that is interesting to you</p>
+      <p>This is the second paragraph about something interesting to you.</p>
+    </div>
+    <div class="page" id="page5">
+      <h1>Page 5!!</h1>
+      <p>The content is right here. Some paragraphs about something that is interesting to you</p>
+      <p>This is the second paragraph about something interesting to you.</p>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
