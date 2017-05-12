@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My title</title>
+
+  <style>
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      padding: 0px;
+    }
+    
+    ul li a {
+      display: block;
+      text-align: center;
+      background: #333333;
+      color: white;
+      padding: 20px 60px;
+      cursor: pointer;
+      text-decoration: none;
+      /*border: 1px solid #333333;*/
+    }
+
+    
+    @media screen and (max-width: 480px) {
+      ul {
+        flex-direction: column;
+      }
+    }
+    
+    ul li a:hover {
+      background: white;
+      color: #333333;
+      transition: all .5s;
+    }
+    
+    ul li.active {
+      background: white;
+      color: #333333;
+      text-decoration: underline;
+      /*border: 1px solid #333333;*/
+    }
+    
+    .page {
+      display: none;
+    }
+    
+    .page.active {
+      display: block;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!-- Menu -->
+  <ul class="nav">
+    <li><a class="active page-link" href="#" data-page="#page1">One</a></li>
+    <li><a href="#" class="page-link" data-page="#page2">Two</a></li>
+    <li><a href="#" class="page-link" data-page="#page3">Three</a></li>
+    <li><a href="#" class="page-link" data-page="#page4">Four</a></li>
+    <li><a href="#" class="page-link" data-page="#page5">Five</a></li>
+  </ul>
+
+</body>
+
+</html>

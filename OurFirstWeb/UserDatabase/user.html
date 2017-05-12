@@ -62,9 +62,9 @@
 
   <table id="userlist">
     <tr>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Age</th>
+      <th data-sortindex = 0>FirstName</th>
+      <th data-sortindex = 1>LastName</th>
+      <th data-sortindex = 2>Age</th>
       <th>Edit?</th>
       <th>Delete?</th>
     </tr>
@@ -78,7 +78,7 @@
     <tr class="user">
       <td class="firstname">Jackie</td>
       <td class="lastname">Lee</td>
-      <td class="age">30</td>
+      <td class="age">66</td>
       <td><a href="#" class="edit-link">Edit</a></td>
       <td><a href="#" class="delete-link">Delete</a></td>
     </tr>
@@ -86,6 +86,20 @@
       <td class="firstname">Elizabeth</td>
       <td class="lastname">DeWitt</td>
       <td class="age">18</td>
+      <td><a href="#" class="edit-link">Edit</a></td>
+      <td><a href="#" class="delete-link">Delete</a></td>
+    </tr>
+    <tr class="user">
+      <td class="firstname">Dwight</td>
+      <td class="lastname">Schrute</td>
+      <td class="age">33</td>
+      <td><a href="#" class="edit-link">Edit</a></td>
+      <td><a href="#" class="delete-link">Delete</a></td>
+    </tr>
+    <tr class="user">
+      <td class="firstname">Michael</td>
+      <td class="lastname">Scott</td>
+      <td class="age">50</td>
       <td><a href="#" class="edit-link">Edit</a></td>
       <td><a href="#" class="delete-link">Delete</a></td>
     </tr>
@@ -147,26 +161,12 @@
     // A $( document ).ready() block.
 
     $(document).ready(function() {
-
+      //global variables
       var $user;
       newentry = false;
 
-      $("#new").click(function() {
-        console.log("Clicked on new");
-
-        newentry = true;
-
-        //Set empty values
-        $(".inputFirstName").val("");
-        $(".inputLastName").val("");
-        $(".inputAge").val("");
-
-        $('#edit').addClass("active");
-      });
-
-      //Edit Link
-      $(".edit-link").click(edit);
-
+      //---------------Logic--------------------
+      //Edit Logic
       function edit() {
         console.log("Clicked on edit-link")
         $user = $(this).closest(".user");
@@ -183,9 +183,7 @@
         $('#edit').addClass("active");
       }
 
-      //Delete Link
-      $(".delete-link").click(deleteuser);
-
+      //Delete Logic
       function deleteuser() {
         var $user = $(this).closest(".user");
         var first_name = $user.find(".firstname").html();
@@ -198,9 +196,70 @@
         }
       }
 
+      //Sorting Logic
+      function sortTable(n) {
+        let x, y, dir, table, rows, sorted, switchcount = 0;
+        dir = "asc";
+
+        while (!sorted) {
+          rows = $(".user")
+
+          for (let i = 0; i < rows.length - 2; i++) {
+            console.log("Looping at row" + i);
+            x = rows[i].getElementsByTagName("td")[n].innerHTML;
+            y = rows[i + 1].getElementsByTagName("td")[n].innerHTML;
+            
+            if ((dir == "asc" && x.toLowerCase() > y.toLowerCase()) || (dir == "desc" && x.toLowerCase() < y.toLowerCase())) {
+              console.log("x is more than y, Switching");
+              sorted = false;
+              rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); //(node to insert, where to insert)
+              switchcount += 1;
+              break;
+            };
+
+            sorted = true;
+            console.log("Sorted is now" + sorted);
+          };
+          console.log("Switch count is " + switchcount);
+
+          //If sorted but ASC without switching, means the list is already sorted in asc
+          //Start sort in Desc order
+          if (sorted == true && dir == "asc" && switchcount == 0) {
+            sorted = false;
+            dir = "desc";
+          };
+        };
+      }
+
+      //Functions to run at start
+      sortTable(0);
+
+      //--------------Events Handler--------------------
+
+      //New Link
+      $("#new").click(function() {
+        console.log("Clicked on new");
+
+        newentry = true;
+
+        //Set empty values
+        $(".inputFirstName").val("");
+        $(".inputLastName").val("");
+        $(".inputAge").val("");
+
+        $('#edit').addClass("active");
+      });
+
+      //Edit Link
+      $(".edit-link").click(edit);
+
+      //Delete Link
+      $(".delete-link").click(deleteuser);
+
       //Save Button!
       $("#savebutton").click(function() {
         console.log("Clicked on save-button");
+
         //Create new user if user clicked on new
         if (newentry == true) {
           $newUser = $(".user.template").clone().removeClass("template");
@@ -209,7 +268,7 @@
           newentry = false
         }
 
-        //Save Function
+        //Save Function - set values from user to the selected user
         first_name = $(".inputFirstName").val();
         last_name = $(".inputLastName").val();
         age = $(".inputAge").val();
@@ -226,14 +285,18 @@
         $('#edit').removeClass("active");
       });
 
-
       //Cancel Link
       $("#cancel").click(function() {
         console.log("Clicked on cancel");
-
         $('#edit').removeClass("active");
       });
 
+      //TableHeader Sort(
+      $("th").click(function() {
+        let sortindex = $(this).data("sortindex");
+        console.log("Sort index is " + sortindex);
+        sortTable(sortindex);
+      });
 
     });
   </script>
