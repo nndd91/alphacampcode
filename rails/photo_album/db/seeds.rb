@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
- 
 
 Photo.create( :title => “Myra's birthday”, :date => “2013-02-02”, :description => “This is my favourite photo of Myra's birthday. It was a wonderful day.”, :file_location => "my-photo/myras-birthday-20130202.jpg")
 
