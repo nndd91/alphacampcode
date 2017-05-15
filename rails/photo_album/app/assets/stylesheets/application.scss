@@ -13,3 +13,51 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets" ;
+@import "bootstrap" ;
+
+.td-thumbnail {
+  width: 300px;
+  height: 150px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.photoblock {
+  display: flex;
+  margin: 10px;
+}
+
+.container {
+  padding: 30px;
+}
+
+#nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 150px;
+  border-bottom: 1px solid grey;
+
+}
+#newbutton a {
+  padding: 5px 10px;
+  margin: 10px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+}
+
+#newbutton a:hover {
+  background-color: silver;
+}

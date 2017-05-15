@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Photo.create( :title => “Myra's birthday”, :date => “2013-02-02”, :description => “This is my favourite photo of Myra's birthday. It was a wonderful day.”, :file_location => "my-photo/myras-birthday-20130202.jpg")
+Photo.create( :title => “Myras birthday”, :date => “2013-02-02”, :description => “This is my favourite photo of Myras birthday. It was a wonderful day.”, :file_location => "my-photo/myras-birthday-20130202.jpg")
 
 Photo.create( :title => “Family outing”, :date => “2014-11-13”, :description => “Spending some time at the park after a long week.”, :file_location => "my-photo/family-outing-20141113.jpg" )
 
