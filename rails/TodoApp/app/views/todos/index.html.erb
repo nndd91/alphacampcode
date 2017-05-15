@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <th>Text</th>
+        <th>Due Date</th>
         <th>Done</th>
         <th colspan="3"></th>
       </tr>
@@ -17,6 +18,7 @@
       <% @todos.each do |todo| %>
         <tr>
           <td><%= todo.text %></td>
+          <td><%= todo.duedate %></td>
           <td><%= human_boolean todo.done %></td>
           <td><%= link_to 'Show', todo %></td>
           <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
