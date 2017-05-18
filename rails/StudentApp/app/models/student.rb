@@ -33,6 +33,8 @@ class Student < ApplicationRecord
 
       average_grade = self.grades.key(total_grade/students.length)
 
+      #Student.group(:grade).average(:grade)
+
     end
 
     def self.age_of_best_student
@@ -69,6 +71,7 @@ class Student < ApplicationRecord
       grades.each do |k, v|
         print k, " = ", v, "\n"
       end
+      #Student.group(:grade).count
     end
 
     def self.average_grades_detailed
@@ -80,19 +83,25 @@ class Student < ApplicationRecord
    
       puts "Male = average #{'%.1f' % male}"
       puts "Female = average #{'%.1f' % female}"
+
+      #Student.group(:gender).average(:grade)
  
     end
 
     def self.duplicates 
+      
+      # duplicatesfirst = self.group(:firstname).having("count(firstname) > 1").pluck(:firstname)
+      # duplicatesfirst.each do |x|
+      #   self.where(firstname: x).each do |y|
+      #     print y.firstname, " ", y.lastname, "\n"
+      #   end
+      # end
 
-      duplicatesfirst = self.group(:firstname).having("count(*) > 1").pluck(:firstname)
-
-
-      duplicatesfirst.each do |x|
-        self.where(firstname: x).each do |y|
-          print y.firstname, " ", y.lastname, "\n"
-        end
+      duplicates = self.where("count(firstname) > 1")
+      duplicates.each do |x|
+        print x.firstname, " ", x.lastname, " \n"
       end
+      
     end
 
     def self.populate(value)
@@ -108,8 +117,33 @@ class Student < ApplicationRecord
       end
     end
     
+    def self.long_lastname
 
-    
+      longlastname = self.where("length(lastname) > 14")
+      # longlastname = self.group(:lastname).having('count(lastname) > 14 ').pluck(:lastname)
+      # longlastname.each do |x|
+      #   self.where(lastname: x).each do |y|
+      #     print y.firstname, " ", y.lastname, "\n"
+      #   end
+      # end
+      longlastname.each do |x|
+        print x.firstname, " ", x.lastname, "\n"
+      end
+
+      class << self #All function below are appended with self. Defining all the methods in singleton class
+        
+        def function 
+          
+        end
+        
+      end
+
+      scope :playing_sport, -> {where(playing_sport: true)}
+      scope :females, lambda do where(gender: "female") end
+      scope :males, -> {where(gender: "male")}
+      
+      
+    end
     
 
 

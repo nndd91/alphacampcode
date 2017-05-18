@@ -15,4 +15,4 @@ Student.create(firstname: "Giovanni",  lastname: "Max", age: 20, grade: "D", gen
 Student.create(firstname: "Giovanni",  lastname: "Nathan", age: 20, grade: "D", gender: "male", playing_sport: true)
 
 
-Student.create(firstname: "John", lastname: "Good", age: 20, grade: "C", gender: "male", playing_sport: true)
+Student.create(firstname: "John", lastname: "Gooddsadsadsadsadsasda", age: 20, grade: "C", gender: "male", playing_sport: true)
