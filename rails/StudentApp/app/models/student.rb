@@ -19,6 +19,15 @@ class Student < ApplicationRecord
         "female": 2
     } 
 
+    scope :playing_sports, -> {where(playing_sport: true)}
+    scope :males, -> {where(gender: "male")}
+
+    # scope :females, lambda.new do
+    #   where(gender: "female")
+    # end
+
+    
+
     def self.female_playing_sports
       students = self.where(gender: "female").where(playing_sport: true)
       return students.length
@@ -138,11 +147,7 @@ class Student < ApplicationRecord
         
       end
 
-      scope :playing_sport, -> {where(playing_sport: true)}
-      scope :females, lambda do where(gender: "female") end
-      scope :males, -> {where(gender: "male")}
-      
-      
+
     end
     
 

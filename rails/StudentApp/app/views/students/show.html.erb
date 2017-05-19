@@ -1,10 +1,16 @@
-Student id is <%= @student.id %>
+<div class="col-lg-6 col-lg-offset-3">
 
-<ul> 
-<li>Firstname: <%= @student.firstname %></li>
-<li>Lastname: <%= @student.lastname %></li>
-<li>Age: <%= @student.age %></li>
 
-</ul>
+<table class="table table-striped">
+<tr><td colspan=2><center><h1><%= @student.firstname %> <%= @student.lastname %></h1></center></td></tr>
+<tr><td>Student id: </td><td><%= @student.id %><td></tr>
+<tr><td>Gender: </td><td><%= @student.gender.capitalize %></td></tr>
+<tr><td>Age: </td><td><%= @student.age %></td></tr>
+<tr><td>Grade: </td><td><%= @student.grade %></td></tr>
+<tr><td>Playing Sport: </td><td><%= @student.playing_sport ? "Yes" : "No" %></td></tr>
+
+
+</table>
 
 <%= link_to 'Back to Index', students_path %>
+</div>

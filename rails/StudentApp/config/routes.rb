@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/students/:id', to: 'students#show'
 
-  delete '/students/:id', to: 'students#destroy'
+  delete '/students/', to: 'students#destroy'
 
 
 end
