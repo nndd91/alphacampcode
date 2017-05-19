@@ -29,6 +29,11 @@ end
 class Array
   include Normalize
   include OddandEven
+
+  # better way of writing
+  # def humanize
+  #   self.map(&:in_words)
+  # end
 end
 
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
