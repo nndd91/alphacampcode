@@ -10,12 +10,10 @@ Tictactoe.rb - Made a complete Tictactoe game using ruby. It allows player vs pl
 # Assigntment on Quality Code
 
 Quality code is 
-**
-* "Any fool can write code that a computer can understand. Good programmers write code that humans can understand."- Martin Fowler
+*** "Any fool can write code that a computer can understand. Good programmers write code that humans can understand."- Martin Fowler
 * code that documents themselves without comments
 * code that doesn't repeat themselves. Repeated codes should be modularize
-* code that uses efficient data structures and algorithm
-**
+* code that uses efficient data structures and algorithm**
 
 __Footnotes__
 * [15 Rules For Writing Quality Code](http://www.informit.com/articles/article.aspx?p=2223710) 
