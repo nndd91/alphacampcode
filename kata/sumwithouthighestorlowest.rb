@@ -1,18 +1,7 @@
 
 
 def sum_array(arr)
-
-
-  eligible_arr = lambda do |array|
-    return false if array.class != Array
-    return false if array.nil?
-    return false if array.empty?
-    return false if array.length < 3
-
-    true
-  end
-
-  if eligible_arr.call(arr)
+  if arr.kind_of?(Array) && arr.length > 2
     arr = arr.flatten.sort
     arr.pop
     arr.shift
