@@ -4,16 +4,11 @@ def find_nb(m)
     total = 0
     i = 1
     while total < m do
-      p total += (i)**3
+      total += (i)**3
       i += 1
     end
 
-    if total == m
-      return i-1
-    else
-      return -1
-    end
-
+    total == m ? i - 1 : -1
 end
 
 
