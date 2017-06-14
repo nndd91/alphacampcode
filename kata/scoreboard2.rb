@@ -46,3 +46,4 @@ p scoreboard([{"name"=>"Big Bob" , "chickenwings"=>20, "hamburgers"=>4, "hotdogs
 p scoreboard([{"name"=>"Joey Jaws", "chickenwings"=>8, "hamburgers"=>8, "hotdogs"=>15},{"name"=>"Big Bob" , "chickenwings"=>20, "hamburgers"=>4, "hotdogs"=>11}])#, [{"name"=>"Big Bob", "score"=>134},{"name"=>"Joey Jaws", "score"=>94}])
 p scoreboard([{"name"=>"Joey Jaws", "chickenwings"=>0, "hamburgers"=>1, "hotdogs"=>1},{"name"=>"Big Bob" , "chickenwings"=>1, "hamburgers"=>0, "hotdogs"=>0}])#, [{"name"=>"Big Bob", "score"=>5},{"name"=>"Joey Jaws", "score"=>5}])
 p scoreboard([])#, [])
+##p scoreboard([{"name"=>"T800", "chickenwings"=>6, "hamburgers"=>1}, {"name"=>"T-X", "chickenwings"=>10, "hotdogs"=>7}, {"name"=>"John Connor", "hotdogs"=>7}, {"name"=>"Dr. Peter Silberman", "chickenwings"=>8, "hamburgers"=>1, "hotdogs"=>4}, {"name"=>"Sarah Connor", "hamburgers"=>6}])
