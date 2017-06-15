@@ -26,7 +26,7 @@ class EvenIndex
   end
 
   def get_right_sum
-    return 0 if @even_index == @array.size-1
+    return 0 if @even_index == @array.size - 1
     @array[@even_index+1..@array.size-1].reduce(:+)
   end
 end
