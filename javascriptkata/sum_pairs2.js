@@ -2,15 +2,13 @@ var sum_pairs=function(ints, s){
   complements = {}
 
   for (i = 0; i < ints.length; i++) {
-    each_num = ints[i]
+    each_num = ints[i];
     if (complements[each_num] == undefined) {
       complements[s - each_num] = each_num;
     } else {
       return [ complements[each_num], each_num ];
     }
   };
-
-
 }
 
 l1= [1, 4, 8, 7, 3, 15];
