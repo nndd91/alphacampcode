@@ -21,7 +21,7 @@ class AddressBook
 
   def get_address
     regexp = '[\\w\\s.]+' + @zipcode + ','
-    p regexp
+
     @directory.scan(/#{regexp}/).map do |address|
       address.gsub(',', '')
     end
