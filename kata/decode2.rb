@@ -1,18 +1,45 @@
 def decode(number)
-  encoded_array = number.to_s.split("98")
-  decoded_array =
+  Decoder.new(number).run
+end
+
+class Decoder
+  SPLIT_BY = "98".freeze
+  JOIN_WITH = ", ".freeze
+
+  def initialize(number)
+    @number = number
+  end
+
+  def run
+    encoded_array = number_split(@number)
+    decode_this(encoded_array)
+  end
+
+  private
+
+  def number_split(number)
+    number.to_s.split(SPLIT_BY)
+  end
+
+  def decode_this(encoded_array)
     encoded_array.map.with_index do |encoded, index|
-      if index%2 == 0
-        word = ""
-        encoded.chars.map.each_slice(3) do |slice|
-          word += (slice.join.to_i - 4).chr
-        end
-        word
+      if index.even?
+        code_to_word(encoded)
       else
-        encoded.to_s.to_i(2)
+        binary_to_num(encoded)
       end
-    end
-  decoded_array.join(", ")
+    end.join(JOIN_WITH)
+  end
+
+  def code_to_word(encoded)
+    encoded.chars.each_slice(3).map do |slice|
+      (slice.join.to_i - 4).chr
+    end.join
+  end
+
+  def binary_to_num(encoded)
+    encoded.to_s.to_i(2)
+  end
 end
 
 p decode(103115104105123101118119981001098) == "codewars, 18"
